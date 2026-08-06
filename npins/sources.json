@@ -28,10 +28,10 @@
       "version_upper_bound": null,
       "release_prefix": null,
       "submodules": false,
-      "version": "v2026.7.0",
-      "revision": "b3c677b8f02743fbfd4fd8270423afd667c03531",
-      "url": "https://api.github.com/repos/FAForever/downlords-faf-client/tarball/refs/tags/v2026.7.0",
-      "hash": "sha256-RYTKrYu7F0I6+PTIa4ctKsDrgYrzd4bMjnbd8a+/Aqo="
+      "version": "v2026.7.1",
+      "revision": "e45f644277e3c946846a8dec5c5b9a1030289125",
+      "url": "https://api.github.com/repos/FAForever/downlords-faf-client/tarball/refs/tags/v2026.7.1",
+      "hash": "sha256-/O0LE5Nc+Ub0p7c1jZ3e76TezC7mwnCkmXjtzBVZm2w="
     },
     "downlords-faf-client-unstable": {
       "type": "GitRelease",
@@ -44,10 +44,10 @@
       "version_upper_bound": null,
       "release_prefix": null,
       "submodules": false,
-      "version": "v2026.7.0",
-      "revision": "b3c677b8f02743fbfd4fd8270423afd667c03531",
-      "url": "https://api.github.com/repos/FAForever/downlords-faf-client/tarball/refs/tags/v2026.7.0",
-      "hash": "sha256-RYTKrYu7F0I6+PTIa4ctKsDrgYrzd4bMjnbd8a+/Aqo="
+      "version": "v2026.7.1",
+      "revision": "e45f644277e3c946846a8dec5c5b9a1030289125",
+      "url": "https://api.github.com/repos/FAForever/downlords-faf-client/tarball/refs/tags/v2026.7.1",
+      "hash": "sha256-/O0LE5Nc+Ub0p7c1jZ3e76TezC7mwnCkmXjtzBVZm2w="
     },
     "dxvk": {
       "type": "GitRelease",
@@ -266,9 +266,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "cf3d1b107147480c447ffbfb3f789dc74335074c",
-      "url": "https://github.com/Open-Wine-Components/umu-launcher/archive/cf3d1b107147480c447ffbfb3f789dc74335074c.tar.gz",
-      "hash": "sha256-0KJtJd0tY8ewoaUIJ+1cIDlr7eRTWLGTpkkNMn60JIY="
+      "revision": "e2b203a1fdd2af9f35166f5713cb3f85d72587e2",
+      "url": "https://github.com/Open-Wine-Components/umu-launcher/archive/e2b203a1fdd2af9f35166f5713cb3f85d72587e2.tar.gz",
+      "hash": "sha256-QwgKUCCDiZC7DCwW+Ir5UED0LG3dv/Q+4ACZa89Uw9w="
     },
     "vkd3d-proton": {
       "type": "GitRelease",
@@ -382,9 +382,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "08304e81f9ac9a83c552a6bd78689040d174bf95",
-      "url": "https://github.com/winetricks/winetricks/archive/08304e81f9ac9a83c552a6bd78689040d174bf95.tar.gz",
-      "hash": "sha256-DYLzT/1ajMakfxWz8aY6w6DgUBCJLFPUf/UQNWVV6aw="
+      "revision": "8e6f0d529b0077bc8602c5de62a08583c7cd0f4e",
+      "url": "https://github.com/winetricks/winetricks/archive/8e6f0d529b0077bc8602c5de62a08583c7cd0f4e.tar.gz",
+      "hash": "sha256-cxbm4ilctg3Aa/RgdJsf8TNZJbIrig21WPIH4rcLKwk="
     }
   },
   "version": 8
