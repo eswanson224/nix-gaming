@@ -75,7 +75,6 @@ let
   '';
 
   script = writeShellScriptBin pname ''
-    export WINEARCH="win32"
     export WINEPREFIX="${location}"
     # sets realtime priority for wine
     export STAGING_RT_PRIORITY_SERVER=1
@@ -139,10 +138,14 @@ let
       else
         ''
           if [ ! -d "$WINEPREFIX" ]; then
+            # required, otherwise installation freezes multiple times with wine-osu
+            wine reg add 'HKCU\Software\Wine\DllOverrides' /v 'winemenubuilder.exe' /t REG_SZ /d ""
             # install tricks
             winetricks -q -f ${tricksFmt}
             wineserver -k
+          fi
 
+          if [ ! -f "$OSU" ]; then
             # install osu
             wine ${src}
             wineserver -k
@@ -162,7 +165,9 @@ let
         ''
       else
         ''
-          wine ${wine-discord-ipc-bridge}/bin/winediscordipcbridge.exe &
+          ${lib.optionalString (
+            wine-discord-ipc-bridge != null
+          ) "wine ${wine-discord-ipc-bridge}/bin/winediscordipcbridge.exe &"}
           ${gameMode} wine ${wineFlags} "$OSU" "$@"
           wineserver -w
         ''
