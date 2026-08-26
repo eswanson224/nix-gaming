@@ -10,18 +10,17 @@
   libsoup_3,
   webkitgtk_4_1,
   glib-networking,
-  openssl_1_1,
   jdk17,
   openal,
   libpulseaudio,
 }:
 stdenvNoCC.mkDerivation rec {
   pname = "modrinth-app";
-  version = "0.5.4";
+  version = "0.18.2";
 
   src = fetchurl {
-    url = "https://launcher-files.modrinth.com/versions/${version}/linux/${pname}_${version}_amd64.deb";
-    hash = "sha256-CW6RQ89LlKbSq6lL1CWQmO0PmbSl7NtUiX3rrn/6U10=";
+    url = "https://launcher-files.modrinth.com/versions/${version}/linux/Modrinth%20App_${version}_amd64.deb";
+    hash = "sha256-l4XC3N3MS74JvqLKIE1terwFtdiGi/UXXJ89n8m3r6g=";
   };
 
   unpackPhase = ''
@@ -40,7 +39,6 @@ stdenvNoCC.mkDerivation rec {
     libsoup_3
     webkitgtk_4_1
     glib-networking
-    openssl_1_1
   ];
 
   installPhase = ''
