@@ -7,7 +7,7 @@ jobs:
     strategy:
       matrix:
         command:
-          - NIXPKGS_ALLOW_INSECURE=1 nix flake check --impure
+          - nix flake check
           - nix run nixpkgs#nixfmt-tree -- --ci
 
     uses: ./.github/workflows/nix.yml
