@@ -198,7 +198,7 @@
           technic-launcher = pkgs.callPackage ./technic-launcher { };
 
           tmodloader = pkgs.callPackage ./tmodloader {
-            dotnet = pkgs.dotnet-runtime_6;
+            dotnet = pkgs.dotnet-runtime_8;
           };
 
           viper = pkgs.callPackage ./titanfall/viper.nix { };
