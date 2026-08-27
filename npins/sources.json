@@ -141,10 +141,10 @@
       "version_upper_bound": null,
       "release_prefix": null,
       "submodules": true,
-      "version": "v1.12.0",
-      "revision": "89f76cd464981721db50cbbdd2ed45320b5c525d",
+      "version": "v1.13.0",
+      "revision": "37f397e142b977a343e920dbc4c7bf7ed2c63a81",
       "url": null,
-      "hash": "sha256-rYZtGkv97RAlPHgniPKHxu3XePHmO2aZytmtkFOGG4A="
+      "hash": "sha256-HW/bvZUsAojJMyqIiOVD6MojjGvrSuDt8nns9ZzvQaI="
     },
     "faf-ice-adapter": {
       "type": "GitRelease",
@@ -382,9 +382,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "5a59ea07513b24093bd90fad943ecf9543cf05bc",
-      "url": "https://github.com/winetricks/winetricks/archive/5a59ea07513b24093bd90fad943ecf9543cf05bc.tar.gz",
-      "hash": "sha256-E8eAXMFMqKlD9ef0blq3dOrpPqZvXxNFtbjc0NuuLLI="
+      "revision": "f3890f670867b5ffbc3938726db45c0f7d16c8ba",
+      "url": "https://github.com/winetricks/winetricks/archive/f3890f670867b5ffbc3938726db45c0f7d16c8ba.tar.gz",
+      "hash": "sha256-+4Wr7HzriSmdj6V46zuhn/bHFtGktgUKUlfd7nFpdlU="
     }
   },
   "version": 8
