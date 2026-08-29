@@ -11,10 +11,10 @@
       "version_upper_bound": null,
       "release_prefix": null,
       "submodules": true,
-      "version": "v2.1",
-      "revision": "91923e35b92d013613f56b9b8f479e0d5cfcec90",
+      "version": "v2.2",
+      "revision": "90b7e6ebdf13a248d9d67caebf3ac0d3c64fff4b",
       "url": null,
-      "hash": "sha256-iPuh/CG7JfVz79n22xfjRZbnaycJLRtqWmlkSznC5sQ=",
+      "hash": "sha256-8IxtNXwT6AyVQiE8yBFrCM5S+YUCvSCApnR2DrLgNJo=",
       "frozen": true
     },
     "downlords-faf-client": {
@@ -60,10 +60,10 @@
       "version_upper_bound": null,
       "release_prefix": null,
       "submodules": true,
-      "version": "v3.0.2",
-      "revision": "767633ab3481e4e30687bedaba982c1a5e4722a7",
+      "version": "v3.1",
+      "revision": "a1596f766f236244686c0c0fffba4416f0e185b1",
       "url": null,
-      "hash": "sha256-Kq6gUQ1Jeayq0wNtGiEiz4IxzJkgz0Yx0aysXdviipk="
+      "hash": "sha256-eFcrew1xvMLsFZfpJLM2HCxVuOkHkl3KdeVO8hdVIck="
     },
     "dxvk-gplasync": {
       "type": "GitRelease",
