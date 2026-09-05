@@ -9,14 +9,14 @@
 }:
 let
   pname = "tModLoader";
-  version = "2023.11.3.3";
+  version = "2026.06.3.6";
 in
 stdenv.mkDerivation {
   inherit pname version;
 
   src = fetchzip {
     url = "https://github.com/tModLoader/${pname}/releases/download/v${version}/tModLoader.zip";
-    hash = "sha256-5sqSBGgsHcFQVAvwHFOUYz5UtVOjOP2mD1uqkGzOnL8=";
+    hash = "sha256-YgKVZORbii+6hLIMur78x6pHKC9+LE9qTH6wp/2raas=";
     stripRoot = false;
   };
 

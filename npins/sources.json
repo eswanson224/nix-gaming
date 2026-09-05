@@ -11,10 +11,10 @@
       "version_upper_bound": null,
       "release_prefix": null,
       "submodules": true,
-      "version": "v2.1",
-      "revision": "91923e35b92d013613f56b9b8f479e0d5cfcec90",
+      "version": "v2.2",
+      "revision": "90b7e6ebdf13a248d9d67caebf3ac0d3c64fff4b",
       "url": null,
-      "hash": "sha256-iPuh/CG7JfVz79n22xfjRZbnaycJLRtqWmlkSznC5sQ=",
+      "hash": "sha256-8IxtNXwT6AyVQiE8yBFrCM5S+YUCvSCApnR2DrLgNJo=",
       "frozen": true
     },
     "downlords-faf-client": {
@@ -60,10 +60,10 @@
       "version_upper_bound": null,
       "release_prefix": null,
       "submodules": true,
-      "version": "v3.0.2",
-      "revision": "767633ab3481e4e30687bedaba982c1a5e4722a7",
+      "version": "v3.1",
+      "revision": "a1596f766f236244686c0c0fffba4416f0e185b1",
       "url": null,
-      "hash": "sha256-Kq6gUQ1Jeayq0wNtGiEiz4IxzJkgz0Yx0aysXdviipk="
+      "hash": "sha256-eFcrew1xvMLsFZfpJLM2HCxVuOkHkl3KdeVO8hdVIck="
     },
     "dxvk-gplasync": {
       "type": "GitRelease",
@@ -141,10 +141,10 @@
       "version_upper_bound": null,
       "release_prefix": null,
       "submodules": true,
-      "version": "v1.12.0",
-      "revision": "89f76cd464981721db50cbbdd2ed45320b5c525d",
+      "version": "v1.13.0",
+      "revision": "37f397e142b977a343e920dbc4c7bf7ed2c63a81",
       "url": null,
-      "hash": "sha256-rYZtGkv97RAlPHgniPKHxu3XePHmO2aZytmtkFOGG4A="
+      "hash": "sha256-HW/bvZUsAojJMyqIiOVD6MojjGvrSuDt8nns9ZzvQaI="
     },
     "faf-ice-adapter": {
       "type": "GitRelease",
@@ -342,9 +342,9 @@
       },
       "branch": "winello",
       "submodules": false,
-      "revision": "210bec41e06e18e94e04b1f91f655648996d0705",
-      "url": "https://github.com/whrvt/wine-osu-patches/archive/210bec41e06e18e94e04b1f91f655648996d0705.tar.gz",
-      "hash": "sha256-RVjMesTNbi/1bU8avM5kyy5QQwdQxxrbmehittucOOA="
+      "revision": "94797bc464b18d478a5a5a9ff82650d40817f398",
+      "url": "https://github.com/whrvt/wine-osu-patches/archive/94797bc464b18d478a5a5a9ff82650d40817f398.tar.gz",
+      "hash": "sha256-QqzNa1Qg73mJegTeGKiBa1KT/EStl8g8c+pIwacopOs="
     },
     "wine-osu-staging": {
       "type": "Git",
@@ -369,9 +369,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "570576e1b5a7fe7214e3cf834d82d944562e8246",
-      "url": "https://github.com/Kron4ek/wine-tkg/archive/570576e1b5a7fe7214e3cf834d82d944562e8246.tar.gz",
-      "hash": "sha256-RO7eapzv1QBY6IiuGGom9+OPqHV6octeOlaUjEwd3/Y="
+      "revision": "03c4499a36812d75e8b170592b066c9fcaca9b1e",
+      "url": "https://github.com/Kron4ek/wine-tkg/archive/03c4499a36812d75e8b170592b066c9fcaca9b1e.tar.gz",
+      "hash": "sha256-B9BINJg7fIXceihykOx50/4/O6x7aQlLH+pCqZyN0IU="
     },
     "winetricks": {
       "type": "Git",
@@ -382,9 +382,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "5a59ea07513b24093bd90fad943ecf9543cf05bc",
-      "url": "https://github.com/winetricks/winetricks/archive/5a59ea07513b24093bd90fad943ecf9543cf05bc.tar.gz",
-      "hash": "sha256-E8eAXMFMqKlD9ef0blq3dOrpPqZvXxNFtbjc0NuuLLI="
+      "revision": "f3890f670867b5ffbc3938726db45c0f7d16c8ba",
+      "url": "https://github.com/winetricks/winetricks/archive/f3890f670867b5ffbc3938726db45c0f7d16c8ba.tar.gz",
+      "hash": "sha256-+4Wr7HzriSmdj6V46zuhn/bHFtGktgUKUlfd7nFpdlU="
     }
   },
   "version": 8

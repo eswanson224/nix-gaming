@@ -179,6 +179,10 @@
 
           rocket-league = pkgs.callPackage ./rocket-league {
             inherit (config.packages) umu-launcher-git;
+            # Ships both the plain `rocket-league` command (EAC on, for online
+            # play) and a `bakkesmod` command (EAC off + injector, for offline
+            # modded play).
+            enableBakkesmod = true;
           };
 
           rpc-bridge = pkgs.callPackage ./rpc-bridge { inherit pins; };
@@ -194,7 +198,7 @@
           technic-launcher = pkgs.callPackage ./technic-launcher { };
 
           tmodloader = pkgs.callPackage ./tmodloader {
-            dotnet = pkgs.dotnet-runtime_6;
+            dotnet = pkgs.dotnet-runtime_8;
           };
 
           viper = pkgs.callPackage ./titanfall/viper.nix { };

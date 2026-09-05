@@ -1,89 +1,66 @@
 {
-  lib,
-  makeDesktopItem,
   symlinkJoin,
   writeShellScriptBin,
-  fetchurl,
-  unzip,
+  curl,
   pname ? "rocket-league",
   location ? "$HOME/Games/${pname}",
   umu-launcher-git,
-  umuProtonPath,
 }:
 let
-  bakkesmodIcon = fetchurl {
-    url = "https://bp-prod.nyc3.digitaloceanspaces.com/site-assets/static/bm-transparent.png";
-    name = "bakkesmod.png";
-    sha256 = "18n6hcab25n9i4v2vmq6p8v7ii17p4x9i9jx3b300lfqm56239y7";
-  };
+  bakkesmodDir = "${location}/drive_c/Program Files/BakkesMod";
+  bakkesmodExePath = "${bakkesmodDir}/BakkesMod.exe";
 
-  bakkesmodExePath = "${location}/drive_c/Program Files/BakkesMod/BakkesMod.exe";
-
+  # Downloads the BakkesMod injector into the wine prefix.
   bakkesmodInstaller = writeShellScriptBin "install-bakkesmod" ''
-    # Create a temp dir for the installer file
-    export TEMP_DIR=$(mktemp -d)
-
-    # Fetch bakkesmod installer and unzip it
-    curl -L https://github.com/bakkesmodorg/BakkesModInjectorCpp/releases/latest/download/BakkesModSetup.zip --output $TEMP_DIR/BakkesModSetup.zip
-
-    ${unzip}/bin/unzip $TEMP_DIR/BakkesModSetup.zip -d $TEMP_DIR
-
-    # Run the bakkesmod installer
-    ${''
-      export WINEPREFIX="${location}"
-      export GAMEID=umu-252950
-      export STORE=egs
-      export PROTON_VERB=runinprefix
-      export PROTONPATH=${umuProtonPath}
-
-      PATH=${umu-launcher-git}/bin:$PATH
-
-      umu-run $TEMP_DIR/BakkesModSetup.exe
-    ''}
-
-    # Clean up
-    rm $TEMP_DIR/BakkesModSetup.zip
-    rm $TEMP_DIR/BakkesModSetup.exe
+    mkdir -p "${bakkesmodDir}"
+    ${curl}/bin/curl -L \
+      https://github.com/bakkesmodorg/BakkesModInjectorCpp/releases/latest/download/BakkesMod.exe \
+      --output "${bakkesmodExePath}"
   '';
 
-  bakkesmodScript = writeShellScriptBin "bakkesmod" ''
+  # legendary `--wrapper` target. legendary invokes this as:
+  #   bakkesmod-wrapper <linux path to Launcher.exe> <epic auth args...> [-noeac]
+  # We run BakkesMod.exe and Launcher.exe in a single umu/proton session so the
+  # injector can inject into RocketLeague.exe, while still receiving legendary's
+  # live Epic auth arguments. This sidesteps
+  # https://github.com/Open-Wine-Components/umu-launcher/issues/194 (which
+  # affects two competing umu-run invocations).
+  bakkesmodWrapper = writeShellScriptBin "bakkesmod-wrapper" ''
+    set -euo pipefail
 
-    echo "bakkesmod exe path: ${bakkesmodExePath}"
+    # Install the injector on first launch.
+    [ -f "${bakkesmodExePath}" ] || ${bakkesmodInstaller}/bin/install-bakkesmod
 
-    if [ ! -f "${bakkesmodExePath}" ]; then
-        echo "${bakkesmodExePath} does not exist, installing bakkesmod..."
-        ${bakkesmodInstaller}/bin/install-bakkesmod
-        echo "finished installing bakkesmod"
-    fi
+    # BakkesMod detects the Epic install through legendary's own installed.json,
+    # which it looks for under the wine profile's ~/.config/legendary. Expose the
+    # host config there so detection succeeds (fixes "installation not detected").
+    mkdir -p "${location}/drive_c/users/steamuser/.config"
+    ln -sfn "$HOME/.config/legendary" "${location}/drive_c/users/steamuser/.config/legendary"
 
-    echo "Starting bakkesmod..."
+    # First arg is Launcher.exe (linux path); the rest are Epic auth args.
+    launcher="$1"
+    shift
+    win_launcher="Z:$(printf '%s' "$launcher" | tr '/' '\\')"
 
-    ${''
-      export WINEPREFIX="${location}"
-      export GAMEID=umu-252950
-      export STORE=egs
-      export PROTON_VERB=runinprefix
-      export PROTONPATH=${umuProtonPath}
+    # Build a batch that starts BakkesMod, then Launcher.exe with all auth args,
+    # so both run inside the same umu session.
+    bat="${location}/drive_c/bm-launch.bat"
+    {
+      printf '@echo off\r\n'
+      printf 'start "" "C:\\Program Files\\BakkesMod\\BakkesMod.exe"\r\n'
+      printf '"%s"' "$win_launcher"
+      for a in "$@"; do printf ' %s' "$a"; done
+      printf '\r\n'
+    } > "$bat"
 
-      PATH=${umu-launcher-git}/bin:$PATH
-
-      umu-run c:/Program\ Files/BakkesMod/BakkesMod.exe
-    ''}
+    exec ${umu-launcher-git}/bin/umu-run 'c:/bm-launch.bat'
   '';
-
-  bakkesmodDesktopItem = makeDesktopItem {
-    name = "bakkesmod";
-    exec = "${bakkesmodScript}/bin/bakkesmod";
-    icon = bakkesmodIcon;
-    desktopName = "Bakkesmod (Rocket League mod)";
-    categories = [ "Game" ];
-  };
 in
 symlinkJoin {
   name = "bakkesmod";
   paths = [
-    bakkesmodDesktopItem
-    bakkesmodScript
+    bakkesmodInstaller
+    bakkesmodWrapper
   ];
 
   meta = {
